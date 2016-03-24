@@ -30,7 +30,7 @@ setClass(Class = "trapezoid",
            y = c(),
            a = c(),
            b = c(),
-           calc = c(),
+           calc = c()
          )
 )
 #' @export
