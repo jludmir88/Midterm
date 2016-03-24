@@ -1,6 +1,6 @@
-#' A trapezoid object.
+#' A simpson object.
 #'
-#' Object of class \code{trapezoid} are created by the \code{integrateIt} function
+#' Object of class \code{simpson} are created by the \code{integrateIt} function
 #' which is created by \code{x} and \code{y} and \code{a} and \code{b} and \code{choose_calc}
 #'
 #'
@@ -8,14 +8,14 @@
 #' \itemize{
 #' \item \code{x} The x-values of the function.
 #' \item \code{y} The y-values of the function
-#' \item \code{calc} The resulting Trapezoidal sum by integration.
+#' \item \code{calc} The resulting Simpson sum by integration.
 #' }
 #'
 #' @author Joseph Ludmir: \email{jludmir@@wustl.edu}
-#' @aliases trapezoid-class initialize,trapezoid-method
-#' @rdname trapezoid
+#' @aliases simpson-class initialize,simpson-method
+#' @rdname simpson
 #' @export
-setClass(Class = "trapezoid",
+setClass(Class = "simpson",
          representation = representation(
            x = "numeric",
            y = "numeric",
@@ -28,7 +28,7 @@ setClass(Class = "trapezoid",
          )
 )
 #' @export
-setMethod("initialize", "trapezoid",
+setMethod("initialize", "simpson",
           function(.Object, ...){
             value=callNextMethod()
             return(value)
@@ -36,14 +36,14 @@ setMethod("initialize", "trapezoid",
 )
 #' @rdname trapezoid
 #' @export
-setGeneric("gettrapezoid",
-           function(object="trapezoid")  {
-             standardGeneric("gettrapezoid")
+setGeneric("getsimpson",
+           function(object="simpson")  {
+             standardGeneric("getsimpson")
            }
 )
 
 #' @export
-setMethod("gettrapezoid", "trapezoid",
+setMethod("getsimpson", "simpson",
           function(object){
             return(object@trapezoid)
           }
