@@ -1,0 +1,17 @@
+{
+    "contents" : "#' A method to calculate the Trapezoidal and Simpson sums of a function.\n#'\n#' Creates objects of either class 'Trapezoid' or 'Simpson'\n#'\n#' An object of the these classes has the following slots:\n#' @param x The x values of the function you use.\n#' @param y The y values of the function you use.\n#' @param a The start of the integration which is a point on the x-axis.\n#' @param b The end of the integration which is a different point on the x-axis.\n#' @param choose_calc A user choice to determine which sum you decide to calculate.\n#'\n#'\n#'\n#' @author Joseph Ludmir: \\email{jludmir@@wustl.edu}\n#' @aliases integrateIt-class\n#' @rdname integrateIt\n#' @export\nsetClass(Class = \"trapezoid\",\n         representation = representation(\n           name = \"character\",\n           delegatesWon = \"numeric\",\n           party = \"character\",\n           delegatesNeeded = \"numeric\"\n         ),\n         prototype = prototype(\n           name = c(),\n           delegatesWon = c(),\n           party = c(),\n           delegatesNeeded = c()\n\n         )\n)\n#' @export\nsetMethod(\"initialize\", \"trapezoid\",\n          function(.Object, ...){\n            value=callNextMethod()\n            return(value)\n          }\n)\n#' @rdname trapezoid\n#' @export\nsetGeneric(\"gettrapezoid\",\n           function(object=\"trapezoid\")  {\n             standardGeneric(\"gettrapezoid\")\n           }\n)\n\n#' @export\nsetMethod(\"gettrapezoid\", \"trapezoid\",\n          function(object){\n            return(object@trapezoid)\n          }\n)\n",
+    "created" : 1458788720641.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2883473748",
+    "id" : "5FBE64F8",
+    "lastKnownWriteTime" : 1458789590,
+    "path" : "~/integrateIt/Midterm/R/integrateIt.R",
+    "project_path" : "R/integrateIt.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,0 +1,17 @@
+{
+    "contents" : "#' A candidate object.\n#'\n#' Object of class \\code{Trapezoid} are created by the \\code{name} and \\code{delegatesWon}\n#' and \\code{party} and \\code{delegatesNeeded}\n#'\n#'\n#' An object of the class `Trapezoid' has the following slots:\n#' \\itemize{\n#' \\item \\code{name} The name of the candidate running.\n#' \\item \\code{delegatesWon} How many delegates the candidate has won so far.\n#' \\item \\code{party} Which political party is the candidate representing\n#' \\item \\code{delegatesNeeded} How many delegates the candidate needs to win the nomination.\n#' }\n#'\n#' @author Joseph Ludmir: \\email{jludmir@@wustl.edu}\n#' @aliases trapezoid-class init_cand,trapezoid-method getTrapezoid,Trapezoid-method\n#' @rdname trapezoid\n#' @export\nsetClass(Class = \"trapezoid\",\n         representation = representation(\n           name = \"character\",\n           delegatesWon = \"numeric\",\n           party = \"character\",\n           delegatesNeeded = \"numeric\"\n         ),\n         prototype = prototype(\n           name = c(),\n           delegatesWon = c(),\n           party = c(),\n           delegatesNeeded = c()\n\n         )\n)\n#' @export\nsetMethod(\"initialize\", \"trapezoid\",\n          function(.Object, ...){\n            value=callNextMethod()\n            return(value)\n          }\n)\n#' @rdname trapezoid\n#' @export\nsetGeneric(\"gettrapezoid\",\n           function(object=\"trapezoid\")  {\n             standardGeneric(\"gettrapezoid\")\n           }\n)\n\n#' @export\nsetMethod(\"gettrapezoid\", \"trapezoid\",\n          function(object){\n            return(object@trapezoid)\n          }\n)\n",
+    "created" : 1458788727532.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3524456088",
+    "id" : "3A062EB3",
+    "lastKnownWriteTime" : 1458690092,
+    "path" : "~/trapezoid/R/hello.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

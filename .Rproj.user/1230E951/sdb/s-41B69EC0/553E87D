@@ -1,0 +1,18 @@
+{
+    "contents" : "#' A trapezoidal object.\n#'\n#' Object of class \\code{trapezoid} are created by the \\code{integrateIt} function\n#' which is created by \\code{x} and \\code{y} and \\code{a} and \\code{b} and \\code{choose_calc}\n#'\n#'\n#' An object of the class `Trapezoid' has the following slots:\n#' \\itemize{\n#' \\item \\code{x} The x-values of the function.\n#' \\item \\code{y} The y-values of the function\n#' \\item \\code{calc} The resulting Trapezoidal sum by integration.\n#' }\n#'\n#' @author Joseph Ludmir: \\email{jludmir@@wustl.edu}\n#' @aliases trapezoid-class initialize,trapezoid-method\n#' @rdname trapezoid\n#' @export\nsetClass(Class = \"trapezoid\",\n         representation = representation(\n           x = \"numeric\",\n           y = \"numeric\",\n           calc = \"numeric\"\n         ),\n         prototype = prototype(\n           x = c(),\n           y = c(),\n           calc = c()\n         )\n)\n#' @export\nsetMethod(\"initialize\", \"trapezoid\",\n          function(.Object, ...){\n            value=callNextMethod()\n            return(value)\n          }\n)\n#' @rdname trapezoid\n#' @export\nsetGeneric(\"gettrapezoid\",\n           function(object=\"trapezoid\")  {\n             standardGeneric(\"gettrapezoid\")\n           }\n)\n\n#' @export\nsetMethod(\"gettrapezoid\", \"trapezoid\",\n          function(object){\n            return(object@trapezoid)\n          }\n)\n",
+    "created" : 1458788632499.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3799856201",
+    "id" : "553E87D",
+    "lastKnownWriteTime" : 1458789519,
+    "path" : "~/integrateIt/Midterm/R/trapezoid.R",
+    "project_path" : "R/trapezoid.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
