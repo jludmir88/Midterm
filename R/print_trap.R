@@ -8,8 +8,8 @@
 #'
 #' @author Joseph Ludmir
 #'
-#' @rdname print
-#' @aliases print,trapezoid-method
+#' @rdname print_trap
+#' @aliases print_trap, trapezoid-method
 #' @export
 setGeneric("print_trap",
            def=function(trap)

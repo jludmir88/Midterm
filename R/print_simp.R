@@ -8,8 +8,8 @@
 #'
 #' @author Joseph Ludmir
 #'
-#' @rdname print
-#' @aliases print,simpson-method
+#' @rdname print_simp
+#' @aliases print_simp, simpson-method
 #' @export
 setGeneric("print_simp",
            def=function(simp)

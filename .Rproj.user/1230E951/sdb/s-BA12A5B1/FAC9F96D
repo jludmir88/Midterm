@@ -1,0 +1,18 @@
+{
+    "contents" : "#' Plots the graph of a function using simpson sums\n#'\n#' Plots the results of simpson sums\n#'\n#' @param trap An object of the class 'simpson'\n#'\n#' @return The plot of the results of the calculation\n#'\n#' @author Joseph Ludmir\n#'\n#' @rdname plot_trap\n#' @aliases plot_trap, trapezoid-method\n#' @export\nsetGeneric(\"plot_trap\",\n           def=function(trap)\n           {standardGeneric(\"plot_trap\")}\n)\n#' @export\nsetMethod(\"plot_trap\",\n          signature(\"trapezoid\"),\n          definition = function(trap){\n            plot(trap@x, trap@y, type = \"n\", main = \"The Visual of the Trapezoidal Sum\",\n                 xlab = \"x\", ylab = \"y\", xlim = c(trap@a, trap@b),\n                 ylim = c(0, trap@y[trap@b]))\n            segments(x0 = trap@x, y0 = 0, x1 = trap@x, y1 = trap@y)\n            segments(x0 = trap@x[1:length(trap@x)-1], y0 = trap@y[1:length(trap@x)-1],\n                     x1 = trap@x[2:length(trap@x)], y1 = trap@y[2:length(trap@x)])\n          }\n)",
+    "created" : 1458801917153.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "2000390778",
+    "id" : "FAC9F96D",
+    "lastKnownWriteTime" : 0,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
