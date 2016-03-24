@@ -4,7 +4,7 @@
 #' which is created by \code{x} and \code{y} and \code{a} and \code{b} and \code{choose_calc}
 #'
 #'
-#' An object of the class `Trapezoid' has the following slots:
+#' An object of the class `trapezoid' has the following slots:
 #' \itemize{
 #' \item \code{x} The x-values of the function.
 #' \item \code{y} The y-values of the function
@@ -56,8 +56,8 @@ setMethod("gettrapezoid", "trapezoid",
 )
 #' @export
 setValidity("trapezoid", function(object){
-  if(object@a == object@b){
-    stop("The starting and ending points of integration must be different.")
+  if(object@a >= object@b){
+    stop("The starting and ending points of integration must be different and the starting point must be smaller.")
   }
   if(length(object@x) != length(object@y)){
     stop("The number of x values must equal the number of y values.")
