@@ -43,12 +43,17 @@ setMethod("integrateIt",
             h <- (b-a)/((length(x)-1))
             x_values <- which(x == a):which(x == b)
             y_values <- which(y == a):which(y == b)
+            y_size <- length(y_values)
             if(choose_calc = t){
-            sum <- (h/2)*(y_values[1] + y_values[length(y_values)]
-                          + 2*(y_values[2]:y_values[length(y_values)-1]))
+            int_trap <- (h/2)*(y_values[1] + y_values[y_size]
+                          + 2*(y_values[2]:y_values[y_size-1]))
             trap_calc <- new("trapezoid", x = x_values, y = y_values,
-                             a = a, b = b, calc = sum)
+                             a = a, b = b, calc = int_trap)
             return(trap_calc)
             }
             if(choose_calc = s){
-            sum <- (h/3)*
+            even_y <- which(y_values %% 2 = 0)
+            odd_y <- which(y_values %% 2 = 1)
+            int_simp <- (h/3)*(y_values[1] + y_values[y_size] +
+                    sum(4*y_values[seq(2,(y_size-1), by = 2)])+
+                    sum(2*y_values[seq(3, (y_size-2))])
