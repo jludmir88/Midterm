@@ -8,6 +8,8 @@
 #' \itemize{
 #' \item \code{x} The x-values of the function.
 #' \item \code{y} The y-values of the function
+#' \item \code{a} The starting point on the x-axis of integration.
+#' \item \code{b} The ending point on the x-axis of integration.
 #' \item \code{calc} The resulting Trapezoidal sum by integration.
 #' }
 #'
@@ -19,12 +21,16 @@ setClass(Class = "trapezoid",
          representation = representation(
            x = "numeric",
            y = "numeric",
+           a = "numeric",
+           b = "numeric",
            calc = "numeric"
          ),
          prototype = prototype(
            x = c(),
            y = c(),
-           calc = c()
+           a = c(),
+           b = c(),
+           calc = c(),
          )
 )
 #' @export
@@ -48,3 +54,12 @@ setMethod("gettrapezoid", "trapezoid",
             return(object@trapezoid)
           }
 )
+#' @export
+setValidity("trapezoid", function(object){
+  if(object@a == object@b){
+    stop("The starting and ending points of integration must be different.")
+  }
+  if(length(object@x) != length(object@y)){
+    stop("The number of x values must equal the number of y values.")
+  }
+})
