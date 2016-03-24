@@ -9,12 +9,12 @@
 #' @param b The end of the integration which is a different point on the x-axis.
 #' @param choose_calc A user choice to determine which sum you decide to calculate.
 #'
-#' @return A 'trapezoid' or 'simpson' object with
+#' @return An object of class 'trapezoid' or 'simpson' containing
 #' \item {x} The x-values of the function.
 #' \item {y} The y-values of the function
 #' \item {a} The starting point on the x-axis of integration.
 #' \item {b} The ending point on the x-axis of integration.
-#' \item {calc} The resulting Trapezoidal sum by integration.
+#' \item {calc} The resulting Trapezoidal or Simpson sum by integration.
 #'
 #' @author Joseph Ludmir: \email{jludmir@@wustl.edu}
 #' @examples
@@ -36,8 +36,19 @@ setGeneric("integrateIt",
 
 
 #' @export
-setMethod("gettrapezoid", "trapezoid",
-          function(object){
-            return(object@trapezoid)
-          }
-)
+setMethod("integrateIt",
+          definition = function(x, y, a, b, choose_calc){
+            # For this h we use the number of x points minus one because were looking
+            # at the number of intervals.
+            h <- (b-a)/((length(x)-1))
+            x_values <- which(x == a):which(x == b)
+            y_values <- which(y == a):which(y == b)
+            if(choose_calc = t){
+            sum <- (h/2)*(y_values[1] + y_values[length(y_values)]
+                          + 2*(y_values[2]:y_values[length(y_values)-1]))
+            trap_calc <- new("trapezoid", x = x_values, y = y_values,
+                             a = a, b = b, calc = sum)
+            return(trap_calc)
+            }
+            if(choose_calc = s){
+            sum <- (h/3)*
