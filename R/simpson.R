@@ -60,7 +60,7 @@ setValidity("simpson", function(object){
 setValidity("simpson", function(object){
   ## Makes sure that the Simpson Rule can apply by ensuring an even amount of points.
   if((length(object@x)%%2) != 0){
-    stop("The number of points being evaluated must be even.")
+    stop("The number of points being evaluated must be odd.")
   }
 })
 #' @rdname trapezoid

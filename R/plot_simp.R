@@ -41,12 +41,12 @@ setMethod("plot_simp",
               (f_v*(((x-u)(x-w))/((v-u)(v-w)))) +
               (f_v*(((x-u)(x-v))/((w-u)(w-v)))))
               return(p)
-            }
             ## Plots all of the points
             points(c(u,w), c(f_u,f_w))
             points(v, f_v)
             ## Creates the curve
             curve(p, add = TRUE)
+            }
             }
 
 )

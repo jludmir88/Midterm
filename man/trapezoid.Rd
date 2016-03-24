@@ -24,6 +24,7 @@ An object of the class `trapezoid' has the following slots:
 \item \code{y} The y-values of the function
 \item \code{a} The starting point on the x-axis of integration.
 \item \code{b} The ending point on the x-axis of integration.
+\item \code{n} The number of rectangles.
 \item \code{calc} The resulting Trapezoidal sum by integration.
 }
 }

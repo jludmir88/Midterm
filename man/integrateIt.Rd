@@ -5,7 +5,7 @@
 \alias{integrateIt-class}
 \title{A method to calculate the Trapezoidal and Simpson sums of a function.}
 \usage{
-integrateIt(x, y, a, b, choose_calc)
+integrateIt(x, y, a, b, n, choose_calc)
 }
 \arguments{
 \item{x}{The x values of the function you use.}
@@ -16,6 +16,8 @@ integrateIt(x, y, a, b, choose_calc)
 
 \item{b}{The end of the integration which is a different point on the x-axis.}
 
+\item{n}{The number of rectangles you want.}
+
 \item{choose_calc}{A character string to determine which sum you decide to calculate.}
 }
 \value{
@@ -24,6 +26,7 @@ An object of class 'trapezoid' or 'simpson' containing
 \item{y} The y-values of the function
 \item{a} The starting point on the x-axis of integration.
 \item{b} The ending point on the x-axis of integration.
+\item{n} The number of rectangles wanted.
 \item{calc} The resulting Trapezoidal or Simpson sum by integration.
 }
 \description{
@@ -37,8 +40,9 @@ x <- c(1,2,3,4)
 y <- 2*x
 a <- 0
 b <- 5
-integrateIt(x, y, a, b, "t")
-integrateIt(x, y, a, b, "s")
+n <- 3
+integrateIt(x, y, a, b, n, "t")
+integrateIt(x, y, a, b, n, "s")
 
 }
 \author{
