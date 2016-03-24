@@ -1,0 +1,18 @@
+{
+    "contents" : "#' A method to print the Trapezoidal sum of a function.\n#'\n#' Prints trapezoidal sum\n#'\n#' An object of the these classes has the following slots:\n#' @param x The x values of the function you use.\n#' @param y The y values of the function you use.\n#' @param a The start of the integration which is a point on the x-axis.\n#' @param b The end of the integration which is a different point on the x-axis.\n#' @param choose_cal",
+    "created" : 1458799463795.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "176342045",
+    "id" : "8FB5AE78",
+    "lastKnownWriteTime" : 1458799268,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

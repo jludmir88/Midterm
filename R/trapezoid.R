@@ -59,6 +59,9 @@ setValidity("trapezoid", function(object){
   if(object@a >= object@b){
     stop("The starting and ending points of integration must be different and the starting point must be smaller.")
   }
+})
+#' @export
+setValidity("trapezoid", function(object){
   if(length(object@x) != length(object@y)){
     stop("The number of x values must equal the number of y values.")
   }

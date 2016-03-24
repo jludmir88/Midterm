@@ -59,10 +59,16 @@ setValidity("simpson", function(object){
   if(object@a >= object@b){
     stop("The starting and ending points of integration must be different and the starting point must be smaller.")
   }
+})
+#' @export
+setValidity("simpson", function(object){
   if(length(object@x) != length(object@y)){
     stop("The number of x values must equal the number of y values.")
   }
-  if(length(object@x%%2 != 0)){
+})
+#' @export
+setValidity("simpson", function(object){
+  if((length(object@x)%%2) != 0){
     stop("The number of points being evaluated must be even.")
   }
 })
