@@ -23,7 +23,7 @@ setMethod("plot_simp",
             ## of the region in question.
             plot(simp@x, simp@y, type = "n", main = "The Visual of the Simpson Sum",
                  xlab = "x", ylab = "y", xlim = c(simp@a, simp@b),
-                 ylim = c(0, max(simp@y[simp@a:simp@b])))
+                 ylim = c(0, max(simp@y[simp@b])))
             ## Using the formulas provided on the slide, I simply defined
             ## all of the variables for every single interval, so u is always one
             ## interval behind f_u and the same goes for w and f_w.

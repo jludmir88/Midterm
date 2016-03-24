@@ -1,0 +1,18 @@
+{
+    "contents" : "#' integrateIt\n#'\n#' The integrateIt package approximates the area under a curve.\n#' @name integrateIt\n#' @docType package\n#' @author  Joseph Ludmir: \\email{jludmir@@wustl.edu}\n#'\nNULL\n",
+    "created" : 1458809651122.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2341401376",
+    "id" : "6B61B6A4",
+    "lastKnownWriteTime" : 1458809678,
+    "path" : "~/integrateIt/Midterm/R/integrateIt-package.R",
+    "project_path" : "R/integrateIt-package.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

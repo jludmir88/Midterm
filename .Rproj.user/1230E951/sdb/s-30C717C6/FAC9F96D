@@ -1,0 +1,18 @@
+{
+    "contents" : "#' Plots the graph of a function using simpson sums\n#'\n#' Plots the results of simpson sums\n#'\n#' @param simp An object of the class 'simpson'\n#'\n#' @return The plot of the results of the calculation\n#'\n#' @author Joseph Ludmir\n#'\n#' @rdname plot_simp\n#' @aliases plot_simp, simpson-method\n#' @export\nsetGeneric(\"plot_simp\",\n           def=function(simp)\n           {standardGeneric(\"plot_simp\")}\n)\n#' @export\nsetMethod(\"plot_simp\",\n          signature(\"simpson\"),\n          definition = function(simp){\n            ## Plots all the points of the simpson sums from start to finish\n            ## of the region in question.\n            plot(simp@x, simp@y, type = \"n\", main = \"The Visual of the Simpson Sum\",\n                 xlab = \"x\", ylab = \"y\", xlim = c(simp@a, simp@b),\n                 ylim = c(0, max(simp@y[simp@b])))\n            ## Using the formulas provided on the slide, I simply defined\n            ## all of the variables for every single interval, so u is always one\n            ## interval behind f_u and the same goes for w and f_w.\n            u <- simp@x[1:length(simp@x)-1]\n            f_u <- simp@y[1:length(simp@y)-1]\n            w <- simp@x[2:length(simp@x)]\n            f_w <- simp@y[2:length(simp@y)]\n            ## Setting the v based on the formula\n            v <- ((w-u)/2)\n            ## Doing the same for f_V\n            f_v <- ((f_w-f_u)/2)\n            ## Creates a function that calculates the p of the formula\n            p_x <- function(x){\n              p <- ((f_u*(((x-v)(x-w))/((u-v)(u-w)))) +\n              (f_v*(((x-u)(x-w))/((v-u)(v-w)))) +\n              (f_v*(((x-u)(x-v))/((w-u)(w-v)))))\n              return(p)\n            ## Plots all of the points\n            points(c(u,w), c(f_u,f_w))\n            points(v, f_v)\n            ## Creates the curve\n            curve(p, add = TRUE)\n            }\n            }\n\n)\n",
+    "created" : 1458801917153.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "717699043",
+    "id" : "FAC9F96D",
+    "lastKnownWriteTime" : 1458809724,
+    "path" : "~/integrateIt/Midterm/R/plot_simp.R",
+    "project_path" : "R/plot_simp.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
