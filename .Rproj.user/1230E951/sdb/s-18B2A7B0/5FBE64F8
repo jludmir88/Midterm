@@ -1,0 +1,17 @@
+{
+    "contents" : "#' A method to calculate the Trapezoidal and Simpson sums of a function.\n#'\n#' Creates objects of either class 'Trapezoid' or 'Simpson'\n#'\n#' An object of the these classes has the following slots:\n#' @param x The x values of the function you use.\n#' @param y The y values of the function you use.\n#' @param a The start of the integration which is a point on the x-axis.\n#' @param b The end of the integration which is a different point on the x-axis.\n#' @param choose_calc A character string to determine which sum you decide to calculate.\n#'\n#' @return An object of class 'trapezoid' or 'simpson' containing\n#' \\item{x} The x-values of the function.\n#' \\item{y} The y-values of the function\n#' \\item{a} The starting point on the x-axis of integration.\n#' \\item{b} The ending point on the x-axis of integration.\n#' \\item{calc} The resulting Trapezoidal or Simpson sum by integration.\n#' @author Joseph Ludmir: \\email{jludmir@@wustl.edu}\n#' @examples\n#' x <- c(1,2,3,4)\n#' y <- 2*x\n#' a <- 0\n#' b <- 5\n#' integrateIt(x, y, a, b, \"t\")\n#' integrateIt(x, y, a, b, \"s\")\n#'\n#' @seealso \\code{\\link{trapezoid}}, \\code{\\link{simpson}}\n#' @aliases integrateIt-class\n#' @rdname integrateIt\n#' @export\nsetGeneric(\"integrateIt\",\n           def = function(x, y, a, b, choose_calc)\n           {standardGeneric(\"integrateIt\")}\n          )\n\n\n#' @export\nsetMethod(\"integrateIt\",\n          definition = function(x, y, a, b, choose_calc){\n            x_values <- which(x >= a & x <= b)\n            h <- ((b-a)/((x_end - x_start)))\n            x_size <- (x_end - x_start - 1)\n            if(choose_calc == \"t\"){\n              if(x_size == 1){\n                int_trap <- (h/2) * (y[x_start] + y[x_end])\n                trap_calc <- new(\"trapezoid\", x = x, y = y,\n                                 a = a, b = b, calc = int_trap)\n                return(trap_calc)\n              } else {\n                int_trap <- (h/2)*((y[x_start] + y[x_end]) +\n                            sum(2*(y[(x_start+1):(x_end-1)])))\n                trap_calc <- new(\"trapezoid\", x = x, y = y,\n                             a = a, b = b, calc = int_trap)\n                return(trap_calc)\n              }\n            }\n            if(choose_calc == \"s\"){\n              if((x_size) == 2){\n                int_simp <- (h/3)*(y[x_start] + y[x_end])\n                simp_calc <- new(\"simpson\", x = x, y = y,\n                                 a = a, b = b, calc = int_simp)\n                return(simp_calc)\n              } else {\n                int_simp <- h/3*(y[x_start] +\n                            4*y[x_start-1] +y[x_end] + sum(rep(c(4,2), times=(x_size-2)/2)*y[(x_start+1):(x_end-2)]))\n                simp_calc <- new(\"simpson\", x = x, y = y,\n                             a = a, b = b, calc = int_simp)\n\n            return(simp_calc)\n              }\n            }\n})\n",
+    "created" : 1458788720641.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "637555186",
+    "id" : "5FBE64F8",
+    "lastKnownWriteTime" : 1458799866,
+    "path" : "~/integrateIt/Midterm/R/integrateIt.R",
+    "project_path" : "R/integrateIt.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

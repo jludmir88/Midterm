@@ -1,0 +1,18 @@
+{
+    "contents" : "#' Print methods for trapezoidal sums\n#'\n#' Prints the results of trapezoidal sums\n#'\n#' @param trap An object of the class 'trapezoid'\n#'\n#' @return The result of the calculation\n#'\n#' @author Joseph Ludmir\n#'\n#' @rdname print_trap\n#' @aliases print_trap, trapezoid-method\n#' @export\nsetGeneric(\"print_trap\",\n           ## Sets up the generic for the new method being used.\n           def=function(trap)\n           {standardGeneric(\"print_trap\")}\n)\n#' @export\nsetMethod(\"print_trap\",\n          ## Simply returns the calc slot, that is you are given the calculation.\n          signature(\"trapezoid\"),\n          definition = function(trap){\n            return(trap@calc)\n          }\n)\n",
+    "created" : 1458801165010.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1327786899",
+    "id" : "ECBFB5E3",
+    "lastKnownWriteTime" : 1458805257,
+    "path" : "~/integrateIt/Midterm/R/print_trap.R",
+    "project_path" : "R/print_trap.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

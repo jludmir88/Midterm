@@ -1,0 +1,18 @@
+{
+    "contents" : "#' Plots the graph of a function using trapezoidal sums\n#'\n#' Plots the results of trapezoidal sums\n#'\n#' @param trap An object of the class 'trapezoid'\n#'\n#' @return The plot of the results of the calculation\n#'\n#' @author Joseph Ludmir\n#'\n#' @rdname plot_trap\n#' @aliases plot_trap, trapezoid-method\n#' @export\nsetGeneric(\"plot_trap\",\n           ## Sets up the generic method\n           def=function(trap)\n           {standardGeneric(\"plot_trap\")}\n)\n#' @export\nsetMethod(\"plot_trap\",\n          signature(\"trapezoid\"),\n          definition = function(trap){\n            ## We essentially plot all of the points of the trapezoidal sum by x and y value.\n            plot(trap@x, trap@y,\n            ## The type makes sure the plot is blank still, main is the title.\n            type = \"n\", main = \"The Visual of the Trapezoidal Sum\",\n            ## Creates the lables, sets the x limit to be the a and b values\n            ## so the graph focuses in only on the area calculated that the user wanted.\n            ## The y limit is set to be from 0 to the max of the y values of the area in question.\n            xlab = \"x\", ylab = \"y\", xlim = c(trap@a, trap@b),\n            ylim = c(0, max(trap@y[trap@a:trap@b])))\n            ## This creates an initial line from the first x value to the second,\n            ## and one from 0 on the y axis to the first y value.\n            segments(x0 = trap@x, y0 = 0, x1 = trap@x, y1 = trap@y)\n            ## Creates trapezoids for every intevral, drawing lines from each\n            ## x value to the next and same with the y, from start to finish.\n            segments(x0 = trap@x[1:length(trap@x)-1], y0 = trap@y[1:length(trap@x)-1],\n                     x1 = trap@x[2:length(trap@x)], y1 = trap@y[2:length(trap@x)])\n          }\n)\n",
+    "created" : 1458801829498.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "72893803",
+    "id" : "A71E632A",
+    "lastKnownWriteTime" : 1458805597,
+    "path" : "~/integrateIt/Midterm/R/plot_trap.R",
+    "project_path" : "R/plot_trap.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

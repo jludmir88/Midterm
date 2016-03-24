@@ -18,6 +18,7 @@
 #' @aliases trapezoid-class initialize,trapezoid-method
 #' @rdname trapezoid
 #' @export
+## Creates the class of trapezoid
 setClass(Class = "trapezoid",
          representation = representation(
            x = "numeric",
@@ -36,12 +37,14 @@ setClass(Class = "trapezoid",
 )
 #' @export
 setValidity("trapezoid", function(object){
+  ## Ensures that the starting point is before and different from the end point on the x-axis.
   if(object@a >= object@b){
     stop("The starting and ending points of integration must be different and the starting point must be smaller.")
   }
 })
 #' @export
 setValidity("trapezoid", function(object){
+  ## Ensures that there are corresponding y values for every x value and vice versa.
   if(length(object@x) != length(object@y)){
     stop("The number of x values must equal the number of y values.")
   }

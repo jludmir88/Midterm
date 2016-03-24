@@ -1,0 +1,18 @@
+{
+    "contents" : "#' Print methods for simpson sums\n#'\n#' Prints the results of simpson sums\n#'\n#' @param simp An object of the class 'simpson'\n#'\n#' @return The result of the calculation\n#'\n#' @author Joseph Ludmir\n#'\n#' @rdname print_simp\n#' @aliases print_simp, simpson-method\n#' @export\nsetGeneric(\"print_simp\",\n           ## Sets up the generic for the method.\n           def=function(simp)\n           {standardGeneric(\"print_simp\")}\n)\n#' @export\nsetMethod(\"print_simp\",\n          signature(\"simpson\"),\n          ## Allows for the calc slot of a simpson calculation to solely be returned\n          ## thus giving you the result.\n          definition = function(simp){\n            return(simp@calc)\n          }\n)\n",
+    "created" : 1458801414200.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3278974827",
+    "id" : "F837AD65",
+    "lastKnownWriteTime" : 1458805312,
+    "path" : "~/integrateIt/Midterm/R/print_simp.R",
+    "project_path" : "R/print_simp.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

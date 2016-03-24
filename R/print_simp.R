@@ -12,12 +12,15 @@
 #' @aliases print_simp, simpson-method
 #' @export
 setGeneric("print_simp",
+           ## Sets up the generic for the method.
            def=function(simp)
            {standardGeneric("print_simp")}
 )
 #' @export
 setMethod("print_simp",
           signature("simpson"),
+          ## Allows for the calc slot of a simpson calculation to solely be returned
+          ## thus giving you the result.
           definition = function(simp){
             return(simp@calc)
           }

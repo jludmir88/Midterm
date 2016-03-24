@@ -17,6 +17,7 @@
 #' @aliases simpson-class initialize,simpson-method
 #' @rdname simpson
 #' @export
+## Creates the class
 setClass(Class = "simpson",
          representation = representation(
            x = "numeric",
@@ -34,6 +35,7 @@ setClass(Class = "simpson",
          )
 )
 #' @export
+## Initializes the class
 setMethod("initialize", "simpson",
           function(.Object, ...){
             value=callNextMethod()
@@ -42,18 +44,21 @@ setMethod("initialize", "simpson",
 )
 #' @export
 setValidity("simpson", function(object){
+  ## Makes sure that the integration is going from a lower to higher x value.
   if(object@a >= object@b){
     stop("The starting and ending points of integration must be different and the starting point must be smaller.")
   }
 })
 #' @export
 setValidity("simpson", function(object){
+  ## Makes sure that the amount of x and y values are equal.
   if(length(object@x) != length(object@y)){
     stop("The number of x values must equal the number of y values.")
   }
 })
 #' @export
 setValidity("simpson", function(object){
+  ## Makes sure that the Simpson Rule can apply by ensuring an even amount of points.
   if((length(object@x)%%2) != 0){
     stop("The number of points being evaluated must be even.")
   }
