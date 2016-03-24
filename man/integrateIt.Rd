@@ -20,11 +20,11 @@ integrateIt(x, y, a, b, choose_calc)
 }
 \value{
 An object of class 'trapezoid' or 'simpson' containing
-\item {x} The x-values of the function.
-\item {y} The y-values of the function
-\item {a} The starting point on the x-axis of integration.
-\item {b} The ending point on the x-axis of integration.
-\item {calc} The resulting Trapezoidal or Simpson sum by integration.
+\item{x} The x-values of the function.
+\item{y} The y-values of the function
+\item{a} The starting point on the x-axis of integration.
+\item{b} The ending point on the x-axis of integration.
+\item{calc} The resulting Trapezoidal or Simpson sum by integration.
 }
 \description{
 Creates objects of either class 'Trapezoid' or 'Simpson'

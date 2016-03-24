@@ -8,6 +8,7 @@
 \description{
 Object of class \code{simpson} are created by the \code{integrateIt} function
 which is created by \code{x} and \code{y} and \code{a} and \code{b} and \code{choose_calc}
+and the result is printed by \code{print_trap}
 }
 \details{
 An object of the class `simpson' has the following slots:

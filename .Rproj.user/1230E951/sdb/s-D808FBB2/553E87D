@@ -1,0 +1,18 @@
+{
+    "contents" : "#' A trapezoid object.\n#'\n#' Object of class \\code{trapezoid} are created by the \\code{integrateIt} function\n#' which is created by \\code{x} and \\code{y} and \\code{a} and \\code{b} and \\code{choose_calc}\n#' and the result is printed by \\code{print_trap}\n#'\n#'\n#' An object of the class `trapezoid' has the following slots:\n#' \\itemize{\n#' \\item \\code{x} The x-values of the function.\n#' \\item \\code{y} The y-values of the function\n#' \\item \\code{a} The starting point on the x-axis of integration.\n#' \\item \\code{b} The ending point on the x-axis of integration.\n#' \\item \\code{calc} The resulting Trapezoidal sum by integration.\n#' }\n#'\n#' @author Joseph Ludmir: \\email{jludmir@@wustl.edu}\n#' @aliases trapezoid-class initialize,trapezoid-method\n#' @rdname trapezoid\n#' @export\nsetClass(Class = \"trapezoid\",\n         representation = representation(\n           x = \"numeric\",\n           y = \"numeric\",\n           a = \"numeric\",\n           b = \"numeric\",\n           calc = \"numeric\"\n         ),\n         prototype = prototype(\n           x = c(),\n           y = c(),\n           a = c(),\n           b = c(),\n           calc = c()\n         )\n)\n#' @export\nsetValidity(\"trapezoid\", function(object){\n  if(object@a >= object@b){\n    stop(\"The starting and ending points of integration must be different and the starting point must be smaller.\")\n  }\n})\n#' @export\nsetValidity(\"trapezoid\", function(object){\n  if(length(object@x) != length(object@y)){\n    stop(\"The number of x values must equal the number of y values.\")\n  }\n})\n\n#' @export\nsetMethod(\"initialize\", \"trapezoid\",\n          function(.Object, ...){\n            value=callNextMethod()\n            return(value)\n          }\n)\n#' @rdname trapezoid\n#' @export\nsetGeneric(\"gettrapezoid\",\n           function(object=\"trapezoid\")  {\n             standardGeneric(\"gettrapezoid\")\n           }\n)\n\n#' @export\nsetMethod(\"gettrapezoid\", \"trapezoid\",\n          function(object){\n            return(object@trapezoid)\n          }\n)\n",
+    "created" : 1458788632499.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1359378759",
+    "id" : "553E87D",
+    "lastKnownWriteTime" : 1458801154,
+    "path" : "~/integrateIt/Midterm/R/trapezoid.R",
+    "project_path" : "R/trapezoid.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -2,6 +2,7 @@
 #'
 #' Object of class \code{trapezoid} are created by the \code{integrateIt} function
 #' which is created by \code{x} and \code{y} and \code{a} and \code{b} and \code{choose_calc}
+#' and the result is printed by \code{print_trap}
 #'
 #'
 #' An object of the class `trapezoid' has the following slots:
@@ -34,6 +35,19 @@ setClass(Class = "trapezoid",
          )
 )
 #' @export
+setValidity("trapezoid", function(object){
+  if(object@a >= object@b){
+    stop("The starting and ending points of integration must be different and the starting point must be smaller.")
+  }
+})
+#' @export
+setValidity("trapezoid", function(object){
+  if(length(object@x) != length(object@y)){
+    stop("The number of x values must equal the number of y values.")
+  }
+})
+
+#' @export
 setMethod("initialize", "trapezoid",
           function(.Object, ...){
             value=callNextMethod()
@@ -54,15 +68,3 @@ setMethod("gettrapezoid", "trapezoid",
             return(object@trapezoid)
           }
 )
-#' @export
-setValidity("trapezoid", function(object){
-  if(object@a >= object@b){
-    stop("The starting and ending points of integration must be different and the starting point must be smaller.")
-  }
-})
-#' @export
-setValidity("trapezoid", function(object){
-  if(length(object@x) != length(object@y)){
-    stop("The number of x values must equal the number of y values.")
-  }
-})

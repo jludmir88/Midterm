@@ -63,9 +63,7 @@ setMethod("integrateIt",
                 return(simp_calc)
               } else {
                 int_simp <- h/3*(y[x_start] +
-                            4*y[x_start-1] +
-                            y[x_end] +
-                sum(rep(c(4,2), times=(x_size-2)/2)*y[(x_start+1):(x_end-2)]))
+                            4*y[x_start-1] +y[x_end] + sum(rep(c(4,2), times=(x_size-2)/2)*y[(x_start+1):(x_end-2)]))
                 simp_calc <- new("simpson", x = x, y = y,
                              a = a, b = b, calc = int_simp)
 

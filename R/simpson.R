@@ -2,7 +2,7 @@
 #'
 #' Object of class \code{simpson} are created by the \code{integrateIt} function
 #' which is created by \code{x} and \code{y} and \code{a} and \code{b} and \code{choose_calc}
-#'
+#' and the result is printed by \code{print_trap}
 #'
 #' An object of the class `simpson' has the following slots:
 #' \itemize{
@@ -40,20 +40,6 @@ setMethod("initialize", "simpson",
             return(value)
           }
 )
-#' @rdname trapezoid
-#' @export
-setGeneric("getsimpson",
-           function(object="simpson")  {
-             standardGeneric("getsimpson")
-           }
-)
-
-#' @export
-setMethod("getsimpson", "simpson",
-          function(object){
-            return(object@simpson)
-          }
-)
 #' @export
 setValidity("simpson", function(object){
   if(object@a >= object@b){
@@ -72,3 +58,17 @@ setValidity("simpson", function(object){
     stop("The number of points being evaluated must be even.")
   }
 })
+#' @rdname trapezoid
+#' @export
+setGeneric("getsimpson",
+           function(object="simpson")  {
+             standardGeneric("getsimpson")
+           }
+)
+
+#' @export
+setMethod("getsimpson", "simpson",
+          function(object){
+            return(object@simpson)
+          }
+)
